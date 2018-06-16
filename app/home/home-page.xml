@@ -1,0 +1,10 @@
+<Page loaded="pageLoaded" class="page" xmlns="http://schemas.nativescript.org/tns.xsd">
+  <StackLayout>
+    <Label textAlignment="center" [text]="text" textWrap="true"></Label>
+    <AbsoluteLayout horizontalAlignment="center" width="80%" height="12%">
+        <Button class="min-button" text="+" (tap)="onPlus()"></Button>
+        <Button class="min-button" left="270%" text="-" (tap)="onMinus()"></Button>
+    </AbsoluteLayout>
+    <Button id="bigBtn" class="big-button" text="Test" (tap)="onTap()"></Button>
+  </StackLayout>
+</Page>
