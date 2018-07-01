@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Vibrate } from 'nativescript-vibrate';
+import * as timerModule from "timer";
 
 @Component({
     selector: "ns-app",
@@ -9,7 +10,14 @@ import { Vibrate } from 'nativescript-vibrate';
 export class AppComponent {
 
   text: string;
+  btnText: string = 'Go-go-go!!!';
   minutes: number = 0;
+  _timerFlag: boolean = false;
+  set timerFlag(b: boolean) {
+    console.log(b);
+    this.btnText = b ? 'Wait...' : 'Go-go-go!!!';
+    this._timerFlag = b;
+  }
 
   constructor() {
     this.refreshText();
@@ -17,16 +25,20 @@ export class AppComponent {
 
   private onTap() {
     let vibrator = new Vibrate();
-    // interval(1000);
-    if (this.minutes > 0) {
-      var timeInterval = setInterval(function() { 
-        vibrator.vibrate(1000); 
-        // alert("Hello"); 
-      }, this.minutes * 1000);
+    if (this.minutes) {
+      if (this._timerFlag) {
+        this.timerFlag = false;
+        return;
+      }
+      this.timerFlag = true;
+      timerModule.setTimeout(() => { 
+        if (this._timerFlag) {
+          vibrator.vibrate(1000); 
+        }
+        // console.log('vibrate');
+        this.timerFlag = false;
+      }, this.minutes * 60000);
     }
-    clearInterval(timeInterval);
-    // view.backgroundColor = new Color("red");
-    // this.view.animate({ backgroundColor: new Color("green"), duration: 2000 });
   }
 
   private refreshText() {
@@ -39,7 +51,9 @@ export class AppComponent {
   }
 
   private onMinus() {
-    if (this.minutes > 0) this.minutes = this.minutes - 1;
+    if (this.minutes) {
+      this.minutes = this.minutes - 1;
+    }
     this.refreshText();
   }
 }
