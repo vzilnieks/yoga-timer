@@ -1,6 +1,27 @@
-<GridLayout class="p-30" rows="40, auto" columns="40, *, 40">
-  <Label row="0" col="1" textAlignment="center" [text]="text" textWrap="true"></Label>
-  <Button row="0" col="2" class="min-button btn btn-primary" text="+" (tap)="onPlus()"></Button>
-  <Button row="0" col="0" class="min-button btn btn-primary" left="200%" text="-" (tap)="onMinus()"></Button>
-  <Button row="2" colSpan="3" id="bigBtn" class="big-button btn btn-primary" [text]="btnText" (tap)="onTap()"></Button>
+<GridLayout class="p-30" rows="50, auto" columns="40, *, 40">
+  <Label 
+    row="0" 
+    col="1" 
+    textAlignment="center" 
+    [text]="text" 
+    textWrap="true"></Label>
+  <Button 
+    row="0" 
+    col="2" 
+    class="min-button btn btn-primary" 
+    text="+" 
+    (tap)="onPlus()"></Button>
+  <Button 
+    row="0" 
+    col="0" 
+    class="min-button btn btn-primary" 
+    text="-" 
+    (tap)="onMinus()"></Button>
+  <Button 
+    row="2" 
+    colSpan="3" 
+    id="bigBtn" 
+    class="big-button btn btn-primary" 
+    [text]="btnText" 
+    (tap)="onTap()"></Button>
 </GridLayout>
