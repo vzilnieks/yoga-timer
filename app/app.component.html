@@ -1,8 +1,27 @@
-<StackLayout class="p-10">
-  <Label textAlignment="center" [text]="text" textWrap="true"></Label>
-  <AbsoluteLayout horizontalAlignment="center" width="80%" height="12%">
-      <Button class="min-button btn btn-primary" text="+" (tap)="onPlus()"></Button>
-      <Button class="min-button btn btn-primary" left="200%" text="-" (tap)="onMinus()"></Button>
-  </AbsoluteLayout>
-  <Button id="bigBtn" class="big-button btn btn-primary" [text]="btnText" (tap)="onTap()"></Button>
-</StackLayout>
+<GridLayout class="p-30" rows="50, auto" columns="40, *, 40">
+  <Label 
+    row="0" 
+    col="1" 
+    textAlignment="center" 
+    [text]="text" 
+    textWrap="true"></Label>
+  <Button 
+    row="0" 
+    col="2" 
+    class="min-button btn btn-primary" 
+    text="+" 
+    (tap)="onPlus()"></Button>
+  <Button 
+    row="0" 
+    col="0" 
+    class="min-button btn btn-primary" 
+    text="-" 
+    (tap)="onMinus()"></Button>
+  <Button 
+    row="2" 
+    colSpan="3" 
+    id="bigBtn" 
+    class="big-button btn btn-primary" 
+    [text]="btnText" 
+    (tap)="onTap()"></Button>
+</GridLayout>
